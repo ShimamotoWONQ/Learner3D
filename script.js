@@ -2,9 +2,9 @@ const buildUrl = "UnityBuild/Build";
 const loaderUrl = buildUrl + "/UnityBuild.loader.js";
 const config = {
     arguments: [],
-    dataUrl: buildUrl + "/UnityBuild.data.unityweb",
-    frameworkUrl: buildUrl + "/UnityBuild.framework.js.unityweb",
-    codeUrl: buildUrl + "/UnityBuild.wasm.unityweb",
+    dataUrl: buildUrl + "/UnityBuild.data",
+    frameworkUrl: buildUrl + "/UnityBuild.framework.js",
+    codeUrl: buildUrl + "/UnityBuild.wasm",
     streamingAssetsUrl: "StreamingAssets",
     companyName: "DefaultCompany",
     productName: "Leaner3D",
