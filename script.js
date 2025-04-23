@@ -33,8 +33,17 @@ if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent))
 else
 {
     // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
-    canvas.style.width = "960px";
-    canvas.style.height = "600px";
+    console.log(window.innerHeight);
+    
+    if (window.innerHeight > 960) {
+        canvas.style.width = "1280px";
+        canvas.style.height = "720px";
+
+    } else {
+        canvas.style.width = "960px";
+        canvas.style.height = "600px";
+
+    }
 }
 
 function loadUnityInstance ()
@@ -123,7 +132,7 @@ function hideUnityPopup()
 function onUnitySceneLoaded()
 {
     console.log("onUnitySceneLoaded");
-    //alert(`Scene loaded!`);
+
 }
 
 function onUnityStepLoaded (event)
@@ -137,6 +146,7 @@ function onUnityStepUnloaded (event)
 {
     console.log("onUnityStepUnloaded: ", event);
     var data = JSON.parse(event.detail);
+    hideUnityPopup();
     //alert(`Step ${data.stepIndex} ended!`);
 }
 
@@ -148,15 +158,7 @@ window.addEventListener('unityStepUnloaded', onUnityStepUnloaded);
 
 function onKeyDown (event) {
     switch (event.code) {
-
-        case 'KeyF':
-            event.preventDefault();
-            if (_unityInstance) _unityInstance.SetFullscreen(1);
-                
-            break;
-
-        default:
-            break;
+        
     }
 }
 document.addEventListener('keydown', onKeyDown)
