@@ -42,7 +42,6 @@ else
     } else {
         canvas.style.width = "960px";
         canvas.style.height = "600px";
-
     }
 }
 
@@ -74,7 +73,7 @@ function requestLoadStep (stepIndex)
 
 function requestUnloadStep ()
 {
-   _unityInstance.SendMessage("JSInterface", "RequestUnloadStep");
+    _unityInstance.SendMessage("JSInterface", "RequestUnloadStep");
 }
 
 function addEventsForList ()
@@ -132,22 +131,17 @@ function hideUnityPopup()
 function onUnitySceneLoaded()
 {
     console.log("onUnitySceneLoaded");
-
 }
 
 function onUnityStepLoaded (event)
 {    
     console.log("onUnityStepLoaded: ", event);
-    var data = JSON.parse(event.detail);
-    //alert(`Step ${data.stepIndex} loaded!`);
 }
 
 function onUnityStepUnloaded (event)
 {
     console.log("onUnityStepUnloaded: ", event);
-    var data = JSON.parse(event.detail);
     hideUnityPopup();
-    //alert(`Step ${data.stepIndex} ended!`);
 }
 
 closePopupDiv.addEventListener('click', hideUnityPopup);
@@ -155,10 +149,3 @@ window.addEventListener('load', addEventsForList)
 window.addEventListener('unitySceneLoaded', onUnitySceneLoaded);
 window.addEventListener('unityStepLoaded', onUnityStepLoaded);
 window.addEventListener('unityStepUnloaded', onUnityStepUnloaded);
-
-function onKeyDown (event) {
-    switch (event.code) {
-        
-    }
-}
-document.addEventListener('keydown', onKeyDown)
